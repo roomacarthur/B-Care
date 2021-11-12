@@ -122,3 +122,11 @@ def login():
 # set to False (deploy) set to True (development)
 if __name__ == '__main__':
     app.run(debug=True)
+
+# ------------------------------------------ #
+
+# Creat custom error pages
+# Invalid URL
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html"), 404

@@ -2,15 +2,29 @@
 
 {% block content %}
 
+<div id="home-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 my-auto ms-3 me-3">
+                <h1 class="display-4 main-heading text-uppercase">
+                    Everything You Do Makes A Difference
+                </h1>
+                <h3 class="sub-heading">
+                    Breast cancer is the most common cancer in women worldwide.
+                </h3>
+                <div class="my-5">
+                    <h4>
+                        <a href="#" class="find-button btn btn-outline-success btn-lg py-2 text-uppercase" 
+                            aria-label="find out more button">
+                            find out more
+                        </a>
+                    </h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <h4>{{ latestStory.text }}</h4>
-
-<h1>B-Care</h1>
-
-<ul class="list-unstyled">
-    <li><a href="{{ url_for('stories') }}">Your stories</a></li>
-    <li><a href="{{ url_for('information') }}">Breast cancer information</a></li>
-    <li><a href="{{ url_for('speak') }}">Speak to someone</a></li>
-    <li><a href="{{ url_for('login') }}">Admin login</a></li>
-</ul>
 
 {% endblock %}

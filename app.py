@@ -121,4 +121,4 @@ def login():
 
 # set to False (deploy) set to True (development)
 if __name__ == '__main__':
-    app.run(debug=False)
+    app.run(debug=True)

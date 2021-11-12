@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Create Story</h1>
+
+<form action="{{ url_for('publish_story') }}" method="POST">
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title" placeholder="story title here">
+    <label for="text">Text</label>
+    <input type="text" id="text" name="text" placeholder="story text here">
+    <button type="submit">Tell your story</button>
+    </div>
+</form>
+
+</form>
+
+{% endblock %}

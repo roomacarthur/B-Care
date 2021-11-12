@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h4>{{ latestStory.text }}</h4>
+
+<h1>B-Care</h1>
+
+<ul class="list-unstyled">
+    <li><a href="{{ url_for('stories') }}">Your stories</a></li>
+    <li><a href="{{ url_for('information') }}">Breast cancer information</a></li>
+    <li><a href="{{ url_for('speak') }}">Speak to someone</a></li>
+    <li><a href="{{ url_for('login') }}">Admin login</a></li>
+</ul>
+
+{% endblock %}

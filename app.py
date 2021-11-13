@@ -1,13 +1,16 @@
-import os
-
 from flask import Flask, render_template, redirect, request, url_for
+from flask_socketio import SocketIO
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from werkzeug import debug
+import gevent
+import os
 
 if os.path.exists("env.py"):
     import env
 
 app = Flask(__name__)
+socketio = SocketIO(app)
 
 #grab the enviornment variables
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
@@ -119,9 +122,23 @@ def login():
 
 # ------------------------------------------ #
 
+@app.route("/chat")
+def chat():
+    return render_template("chat.html")
+
+# server receives messages through the message 'route'
+# sends the message to ALL clients connected....
+@socketio.on('message')
+def handle_message(data):
+    print('received message: ' + data)
+    socketio.emit('updateui', data)
+
+# ------------------------------------------ #
+
 # set to False (deploy) set to True (development)
 if __name__ == '__main__':
-    app.run(debug=True)
+    socketio.run(app)
+    #app.run(debug=False)
 
 # ------------------------------------------ #
 
